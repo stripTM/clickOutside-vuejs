@@ -34,6 +34,12 @@ export default {
   created: function () {
     this.selected = this.options[0]
   },
+  destroyed() {
+    // Clear event capture
+    if (this.showFilters) {
+      this.close()
+    }
+  },
   methods: {
     handleSelect: function (item) {
       this.selected = item
@@ -51,7 +57,6 @@ export default {
     },
     clickOutside(event) {
       if (this.$el && !this.$el.contains(event.target)) {
-        console.log('Clickoutside')
         this.close()
       }
     },

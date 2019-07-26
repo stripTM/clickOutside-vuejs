@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <OverlapComponent v-bind:options="options"/>
+    <OverlapComponent v-bind:options="options" v-if="ver"/>
+    <button v-on:click="ver = !ver">off</button>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -17,6 +18,7 @@ export default {
   },
   data() {
     return {
+      ver: true,
       options: [
         {
           id: 0,

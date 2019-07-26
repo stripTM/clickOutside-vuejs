@@ -70,12 +70,10 @@ export default {
   },
   methods: {
     seleccionar(event) {
-      const cancelEvent = () => { 
-        console.log("cancelo", event.target)
-        event.target.removeEventListener('click', this.seleccionar) 
+      const cancelEvent = () => {
+        event.target.removeEventListener('click', this.seleccionar)
         event.target.click()
       }
-      console.log("hello", event);
       event.preventDefault();
       this.$emit("seleccionar", event, cancelEvent);
     }
